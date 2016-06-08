@@ -1,0 +1,16 @@
+<% @users.each do |user| %>
+
+    <% if user != current_user %>
+        <%= image_tag(user.avatar.url(:thumb)) %>
+        <%= user.username %> |
+        <%= link_to 'Send a message', new_message_path(user_1_id: current_user.id, user_2_id: user.id), :method => :post %>
+        <%= link_to 'Go to profile', user_path(user) %>
+        <% if current_user.friendships.find { |friend| friend[:friend_id] == user.id }.present? %>
+            Has already added to your friends
+        <% else %>
+            <%= link_to 'Add Friend', friendships_path(:friend_id => user.id), :method => :post %>
+        <% end %>
+        <br>
+    <% end %>
+
+<% end %>

@@ -1,0 +1,27 @@
+<head>
+  <title> My friends </title>
+</head>
+
+<h2>My friends</h2>
+<ul>
+  <% for friendship in @user.friendships %>
+      <div class='friend'>
+        <div class='avatar'>
+          <%= image_tag(friendship.friend.avatar.url(:thumb)) %>
+        </div>
+        <div class='friends_name'>
+          <%= friendship.friend.username %>
+        </div>
+        (<%= link_to 'remove', friendship, :method => :delete %>)
+      </div>
+  <% end %>
+</ul>
+
+<p><%= link_to 'Find Friends', users_path %></p>
+
+<h2>Friended by Users</h2>
+<ul>
+  <% for user in @user.inverse_friends %>
+      <li><%= user.username %></li>
+  <% end %>
+</ul>

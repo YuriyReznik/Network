@@ -1,0 +1,20 @@
+<h2> Inbox </h2>
+<% if @messages.present? %>
+    <% @messages.each do |sm| %>
+        <div class='message'>
+          <div class='info'>
+            Message from: <%= sm.user_1.email %> | <%= time_ago_in_words sm.created_at %> ago
+          </div>
+          <div class='body'>
+            <% if sm.image %>
+                <%= image_tag sm.image.url(:thumb) %>
+            <% else %>
+                <%= sm.content %>
+            <% end %>
+          </div>
+        </div>
+        <%= link_to 'Delete', message_path(sm), method: :delete, data: {confirm: 'Are you sure?'} %>
+    <% end %>
+<% else %>
+    <p> No messages </p>
+<% end %>

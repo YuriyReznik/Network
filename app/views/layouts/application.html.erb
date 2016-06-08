@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="row">
+  <div class="col-md-4 text-center well"> Logo </div>
+  <% if user_signed_in? %>
+      <div class="col-md-4 text-center well">
+        Logged in as <strong><%= current_user.username %></strong>
+      </div>
+      <div class="col-md-4  text-right well">
+        <%= link_to 'Edit profile', edit_user_registration_path %> |
+        <%= link_to 'Log out', destroy_user_session_path, method: :delete %>
+      </div>
+  <% else %>
+      <div class="col-md-4 text-center well"> You should log in</div>
+      <div class="col-md-4 text-right well">
+        <%= link_to 'Sign up', new_user_registration_path %> |
+        <%= link_to 'Log in', new_user_session_path %>
+      </div>
+  <% end %>
+</div>
+
+<div class="col-md-2 text-center well">
+  <ul class='sidebar'>
+    <li><%= link_to 'Profile', root_path %></li>
+    <li><%= link_to 'My messages', messages_path %>
+      <ul>
+        <li><%= link_to 'Inbox', messages_inbox_path %></li>
+        <li><%= link_to 'Outbox', messages_outbox_path %></li>
+      </ul>
+    </li>
+    <li>Travel reports</li>
+    <ul>
+      <li><%= link_to 'My reports' %></li>
+      <li><%= link_to 'All reports' %></li>
+      <li><%= link_to 'The most popular' %></li>
+    </ul>
+    <li><%= link_to 'Friends', friends_path %></li>
+    <li><%= link_to 'Members', users_path %></li>
+  </ul>
+</div>
+<div class="col-md-10">
+  <%= yield %>
+</div>
+
+<% flash.each do |type, message| %>
+    <div class="flash">
+      <%= message %>
+    </div>
+<% end %>
+
+</body>
+</html>

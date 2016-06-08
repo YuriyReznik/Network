@@ -1,0 +1,22 @@
+<h2>Outbox</h2>
+<% if @messages.present? %>
+    <% @messages.each do |pm| %>
+        <div class='message'>
+          <div class='info'>
+            <p> Message to: <%= pm.user_2.email %> | <%= time_ago_in_words pm.created_at %> ago </p>
+          </div>
+          <div class='body'>
+            <% unless pm.image_content_type.nil? %>
+                <%= image_tag pm.image.url(:thumb) %>
+                <%= pm.content %>
+            <% else %>
+                <%= pm.content %>
+            <% end %>
+          </div>
+        </div>
+        <%= link_to 'Edit', edit_message_path(pm) %> |
+        <%= link_to 'Delete', message_path(pm), method: :delete, data: {confirm: 'Are you sure?'} %>
+    <% end %>
+<% else %>
+    <p> No messages </p>
+<% end %>
