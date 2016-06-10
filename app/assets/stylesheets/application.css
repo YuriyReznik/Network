@@ -14,6 +14,18 @@
  *= require_self
  */
 
+
+body {
+    padding-top: 50px;
+}
+
+.body{
+    background-color: gainsboro;
+    border-radius: 5px;
+    padding: 10px;
+    color: #2E2F30;
+}
+
 .form {
 
     position: absolute;
@@ -27,12 +39,6 @@
     text-align: center;
     padding-top: 10px;
 }
-
-.sidebar {
-    text-align: left;
-    list-style: none;
-}
-
 .message {
     border: 2 px solid black;
     border-radius: 5px;
@@ -44,14 +50,6 @@
 
 }
 
-.body{
-    background-color: whitesmoke;
-    border-radius: 5px;
-    padding: 10px;
-    color: #2E2F30;
-
-}
-
 .info {
     color: whitesmoke;
 }
@@ -59,7 +57,7 @@
 
 .round-image-50 {
     background-color: white;
-    border: 1px solid #d9d9d9;
+    border: 3px solid white;
     border-radius: 25px;
     -moz-border-radius: 25px;
     -webkit-border-radius: 25px;
@@ -67,6 +65,10 @@
     width: 200px;
     overflow: hidden;
     text-align: center;
-img { width: 100% }
+    margin-top: 20px;
+
 }
 
+#sidebar {
+    background-color: gainsboro;
+}
