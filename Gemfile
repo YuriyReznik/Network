@@ -45,5 +45,6 @@ group :development do
   gem 'spring', '1.6.4'
 
   gem "paperclip", "~> 5.0.0.beta1"
+  gem 'bootstrap-sass'
 end
 
