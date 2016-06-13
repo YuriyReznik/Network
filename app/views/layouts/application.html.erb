@@ -20,7 +20,7 @@
       </button>
       <a class="navbar-brand" href="#">TravelClip
         <% if user_signed_in? %>
-            | (<%= current_user.username %>)
+          | (<%= current_user.username %>)
         <%end%>
       </a>
     </div>
@@ -28,9 +28,10 @@
       <div class="collapse navbar-collapse" id="menu">
         <ul class="nav navbar-nav">
           <li><%= link_to 'Profile', root_path %></li>
-          <li><%= link_to 'Travelers', users_path %></li>
-          <li><%= link_to 'Subscription', friends_path %></li>
           <li><%= link_to 'Reports', reports_path %></li>
+          <li><%= link_to 'Подписки', friendships_path %></li>
+          <li><%= link_to 'Messages', messages_path %></li>
+
         </ul>
         <ul class="nav navbar-nav navbar-right">
 

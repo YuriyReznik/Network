@@ -1,0 +1,9 @@
+<h2> Frienships </h2>
+
+<ul>
+  <% current_user.friendships.each do |f| %>
+      <li>
+        <%= f.friend.username %>
+      </li>
+  <% end %>
+</ul>

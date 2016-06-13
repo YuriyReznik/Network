@@ -2,13 +2,12 @@
 
 <%= form_for @report, html: { multipart: true } do |f|%>
 
-    <%= f.file_field :image %>
+
     <%= f.hidden_field :user_id, :value => current_user.id %>
     <p>Title: <br><%= f.text_field :title %>
-    <p>Story: <br><%=  f.text_area :content %></p>
-    <% link_to "Add picture", new_pictire_path %>
-
+    <p>Story: <br><%=  f.text_area :body %></p>
     <p><%=  f.submit 'Save' %></p>
+
 
 
 <% end %>

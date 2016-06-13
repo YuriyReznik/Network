@@ -3,6 +3,7 @@ class PaintingsController < ApplicationController
   before_action :find_painting, only: [:show, :edit, :update, :destroy]
 
   def index
+    @paintings = Painting.all
   end
 
   def new
@@ -11,8 +12,8 @@ class PaintingsController < ApplicationController
 
   def create
     @painting = Painting.create(painting_params)
-    if @painting.errors.empty?
-      redirect_to paintings_path(@painting)
+     if @painting.errors.empty?
+      redirect_to '/'
     else
       render 'new'
     end

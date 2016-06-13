@@ -6,7 +6,7 @@
 
 <div class='container-fluid'>
   <div class='row'>
-      <div class="col-lg-3" id="sidebar">
+      <div class="col-lg-2" id="sidebar">
         <div class="round-image-50 center-block">
           <%= image_tag(current_user.avatar.url(:medium)) %>
         </div>
@@ -27,9 +27,19 @@
           </ul>
         </div>
       </div>
-    <div class="col-lg-9 well">
+    <div class="col-lg-10 well">
+      <%= link_to 'Add new report', new_report_path %>
 
-    </div>
+      <% current_user.reports.each do |r| %>
+      <div class="report">
+        <p><%= r.title %></p>
+        <p><%= r.body %></p>
+
+      </div>
+          <%= link_to 'Show', report_path(r) %>
+          <%= link_to 'Edit', edit_report_path(r) %>
+          <%= link_to 'Delete', report_path(r), method: :delete, data: {confirm: 'Are you sure?'} %>
+      <%end%>
   </div>
 
 </div>

@@ -11,15 +11,16 @@ class ReportsController < ApplicationController
   end
 
   def edit
-    @report = Report.create(report_params)
-    if @report.errors.empty?
-      redirect_to reports_path(@report)
-    else
-      render 'new'
-    end
+
   end
 
   def create
+    @report = Report.create(report_params)
+    if @report.errors.empty?
+      redirect_to '/'
+    else
+      render 'new'
+    end
   end
 
   def show
@@ -36,7 +37,7 @@ class ReportsController < ApplicationController
 
   def destroy
     @report.destroy
-    redirect_to action: 'index'
+    redirect_to '/'
   end
 
   def find_report

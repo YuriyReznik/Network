@@ -42,9 +42,10 @@ group :development do
   gem 'web-console', '~> 2.0'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
-  gem 'spring', '1.6.4'
+  gem 'spring'
 
   gem "paperclip", "~> 5.0.0.beta1"
   gem 'bootstrap-sass'
+
 end
 

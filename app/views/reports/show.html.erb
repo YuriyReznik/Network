@@ -1,2 +1,11 @@
 <h1>Reports#show</h1>
-<p>Find me in app/views/reports/show.html.erb</p>
+
+<%= @report.title %>
+<%= @report.body %>
+
+<% @report.paintings.each do |rp| %>
+
+  <%= image_tag rp.image.url(:thumb) %>
+    <%= rp.name %>
+
+<%end%>

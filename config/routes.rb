@@ -1,19 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'reports/index'
-
-  get 'reports/new'
-
-  get 'reports/edit'
-
-  get 'reports/create'
-
-  get 'reports/show'
-
-  get 'reports/update'
-
-  get 'reports/destroy'
-
   get 'friendships/create'
 
   get 'friendships/destroy'
@@ -31,8 +17,10 @@ Rails.application.routes.draw do
   resources :messages
   resources :friendships
   resources :reports
+  resources :paintings
 
   post 'messages/new' => 'messages#new'
+  post 'paintings/new' => 'paintings#new'
   root 'users#profile'
 
   # The priority is based upon order of creation: first created -> highest priority.
