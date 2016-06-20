@@ -1,40 +1,61 @@
-<h2>Outbox</h2>
-<% if @current_user.primary_messages.present? %>
-    <% @current_user.primary_messages.each do |pm| %>
-        <div class='message'>
-          <div class='info'>
-            <p> Message to: <%= pm.user_2.email %> | <%= time_ago_in_words pm.created_at %> ago </p>
-          </div>
-          <div class='body'>
-            <% unless pm.image_content_type.nil? %>
-                <%= image_tag pm.image.url(:thumb) %>
-                <%= pm.content %>
+<div class='container'>
+  <div class="row">
+    <div class="col-ls-10">
+      <div class="tabs">
+        <ul class="nav nav-tabs">
+          <li class="active"><a href="#inbox" data-toggle="tab">Inbox</a></li>
+          <li><a href="#outbox" data-toggle="tab">Outbox</a></li>
+          <li><a href="#new_message" data-toggle="tab">New message</a></li>
+        </ul>
+        <div class="tab-content">
+          <div class="tab-pane active" id="inbox">
+            <% if @current_user.secondary_messages.present? %>
+                <% @current_user.secondary_messages.each do |sm| %>
+                    <div class='message'>
+                      <div class='message_info'>
+                        Message from: <%= sm.user_1.email %> | <%= time_ago_in_words sm.created_at %> ago
+                      </div>
+                      <div class='message_content'>
+                        <%= sm.content %>
+                        <%= image_tag sm.image.url(:thumb) %>
+                      </div>
+                    </div>
+                    <%= link_to 'Delete', message_path(sm), method: :delete, data: {confirm: 'Are you sure?'} %>
+                <% end %>
             <% else %>
-                <%= pm.content %>
+                <p> No messages </p>
             <% end %>
           </div>
-        </div>
-        <%= link_to 'Edit', edit_message_path(pm) %> |
-        <%= link_to 'Delete', message_path(pm), method: :delete, data: {confirm: 'Are you sure?'} %>
-    <% end %>
-<% else %>
-    <p> No messages </p>
-<% end %>
-
-<h2> Inbox </h2>
-<% if @current_user.secondary_messages.present? %>
-    <% @current_user.secondary_messages.each do |sm| %>
-        <div class='message'>
-          <div class='info'>
-            Message from: <%= sm.user_1.email %> | <%= time_ago_in_words sm.created_at %> ago
+          <div class="tab-pane" id="outbox">
+            <% if @current_user.primary_messages.present? %>
+                <% @current_user.primary_messages.each do |pm| %>
+                    <div class='message'>
+                      <div class='message_info'>
+                        <p> Message to: <%= pm.user_2.email %> | <%= time_ago_in_words pm.created_at %> ago </p>
+                      </div>
+                      <div class='message_content'>
+                        <% unless pm.image_content_type.nil? %>
+                            <%= image_tag pm.image.url(:thumb) %>
+                            <%= pm.content %>
+                        <% else %>
+                            <%= pm.content %>
+                        <% end %>
+                      </div>
+                    </div>
+                    <%= link_to 'Edit', edit_message_path(pm) %> |
+                    <%= link_to 'Delete', message_path(pm), method: :delete, data: {confirm: 'Are you sure?'} %>
+                <% end %>
+            <% else %>
+                <p> No messages </p>
+                <% end %>
+            <hr>
+            <%= link_to 'New message', new_message_path %>
           </div>
-          <div class='body'>
-            <%= image_tag sm.image.url(:thumb) %>
-            <%= sm.content %>
+          <div class="tab-pane" id="new_message">
+              New message form
           </div>
         </div>
-        <%= link_to 'Delete', message_path(sm), method: :delete, data: {confirm: 'Are you sure?'} %>
-    <% end %>
-<% else %>
-    <p> No messages </p>
-<% end %>
+      </div>
+    </div>
+  </div>
+</div>

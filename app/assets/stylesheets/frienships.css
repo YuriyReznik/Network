@@ -1,0 +1,21 @@
+.friend_box {
+    display: inline-block;
+    margin-right: 20px;
+    border: 2 px solid dimgray;
+    border-color: #2E2F30;
+}
+
+.friends_avatar {
+    background-color: white;
+    border: 3px solid #333;
+    border-radius: 10px;
+    -moz-border-radius: 10px;
+    -webkit-border-radius: 10px;
+    height: 150px;
+    width: 150px;
+    overflow: hidden;
+    text-align: center;
+}
+.tabs {
+    margin-top: 20px;
+}

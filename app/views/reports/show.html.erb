@@ -8,4 +8,6 @@
   <%= image_tag rp.image.url(:thumb) %>
     <%= rp.name %>
 
+
 <%end%>
+<%= link_to 'Add painting', new_painting_path(report_id: @report.id), :method => :post %>

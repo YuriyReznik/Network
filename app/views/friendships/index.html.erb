@@ -1,9 +1,13 @@
-<h2> Frienships </h2>
-
-<ul>
-  <% current_user.friendships.each do |f| %>
-      <li>
-        <%= f.friend.username %>
-      </li>
-  <% end %>
-</ul>
+<div class="container">
+  <h2> Followers </h2>
+  <div class="row">
+    <% current_user.friendships.each do |f| %>
+      <div class="col-lg-3 well friend_box">
+        <div class="friends_avatar">
+          <%= image_tag (f.friend.avatar.url(:medium))%>
+        </div>
+        <p><%= f.friend.username %></p>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -16,14 +16,8 @@
 
 
 body {
-    padding-top: 60px;
-}
-
-.body{
-    background-color: gainsboro;
-    border-radius: 5px;
-    padding: 10px;
-    color: #2E2F30;
+    padding-top: 50px;
+    font-family: sans-serif;
 }
 
 .form {
@@ -39,21 +33,6 @@ body {
     text-align: center;
     padding-top: 10px;
 }
-.message {
-    border: 2 px solid black;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 10px;
-    background-color: #2E2F30;
-    position: relative;
-    margin-bottom: 10px;
-
-}
-
-.info {
-    color: whitesmoke;
-}
-
 
 .round-image-50 {
     background-color: white;
@@ -66,7 +45,6 @@ body {
     overflow: hidden;
     #text-align: center;
     margin-top: 20px;
-
 }
 
 #sidebar {

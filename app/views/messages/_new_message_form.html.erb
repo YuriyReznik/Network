@@ -1,0 +1,12 @@
+<p> Choose image: <br>
+  <%= f.file_field :image %></p>
+<%= f.hidden_field :user_1_id, :value => current_user.id %>
+<p><% if params[:user_2_id].present? %>
+      <%= f.hidden_field :user_2_id, :value => params[:user_2_id] %>
+  <%else%>
+      Choose recipient:
+      <br>
+      <%= select_tag(:user_2_id, options_for_select([['Ira', 9], ['Zhenya', 10]])) %>
+  <%end%></p>
+<p>Content: <br><%=  f.text_area :content %></p>
+<p><%=  f.submit 'Save' %></p>

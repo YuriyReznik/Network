@@ -1,0 +1,21 @@
+.message {
+    border: 2 px solid black;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px;
+    background-color: #2E2F30;
+    position: relative;
+    margin-bottom: 10px;
+
+}
+
+.message_info {
+    color: whitesmoke;
+}
+
+.message_content{
+    background-color: gainsboro;
+    border-radius: 5px;
+    padding: 10px;
+    color: #333;
+}
