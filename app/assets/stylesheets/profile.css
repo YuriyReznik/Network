@@ -1,0 +1,35 @@
+.sidebar {
+    background-color: gainsboro;
+
+}
+
+.main_content {
+    height: 2000px;
+}
+
+.users_avatar {
+    background-color: white;
+    border: 3px solid white;
+    height: 150px;
+    width: 150px;
+    overflow: hidden;
+    margin: 20px auto 10px;
+}
+
+.username {
+    text-align: center;
+}
+.users_status {
+    text-align: center;
+    font-size: 12px;
+}
+
+.users_frienships {
+    text-align: center;
+    margin-top: 10px;
+}
+
+.link_to_followers,
+.link_to_following {
+    color: #333333;
+}

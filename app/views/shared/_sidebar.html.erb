@@ -1,0 +1,30 @@
+<div class="users_avatar">
+  <%= image_tag(current_user.avatar.url(:medium)) %>
+</div>
+<h4 class="username"><%= current_user.username %></h4>
+<div class="users_status">Here will be users status</div>
+<p class="users_frienships">
+
+  <%= link_to 'followers', friendships_path, class: 'link_to_followers' %>
+  <span class="badge"><%= current_user.friendships.count %></span> |
+  <span class="badge"><%= current_user.inverse_friendships.count %></span>
+  <%= link_to 'following', friends_path, class: 'link_to_following' %>
+</p>
+
+<div class="current_profile_state">
+  <ul class="list-group">
+    <li class="list-group-item"><span class="badge"><%= current_user.reports.count %></span>Reports</li>
+  </ul>
+</div>
+<div class="message-box">
+  <p>Messages</p>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <span class="glyphicon glyphicon-arrow-right"></span> <span class="badge"><%= current_user.secondary_messages.count %></span><%= link_to 'Inbox', messages_inbox_path %>
+    </li>
+    <li class="list-group-item">
+      <span class="glyphicon glyphicon-arrow-left"></span> <span class="badge"><%= current_user.primary_messages.count %></span><%= link_to 'Outbox', messages_outbox_path %>
+    </li>
+  </ul>
+</div>
+

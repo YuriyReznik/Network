@@ -1,21 +1,50 @@
-.message {
-    border: 2 px solid black;
-    border-radius: 5px;
-    padding: 10px;
-    margin: 10px;
-    background-color: #2E2F30;
+.message_container {
     position: relative;
-    margin-bottom: 10px;
+    border-bottom: 1px solid #333;
+    padding: 20px 240px 20px 110px;
+    margin: 0px auto;
+}
+
+.created_at {
+    position: absolute;
+    top:20px;
+    right: 140px;
+    font-style: italic;
+    color: grey;
+}
+
+strong {
+    position: absolute;
+    left:20px;
+}
+
+p {
+    text-align: justify;
 
 }
 
-.message_info {
-    color: whitesmoke;
+.nav_panel {
+    position: absolute;
+    right: 130px;
+    top:90px;
+    display: inline-block;
+    border-top: 1px solid lightgrey;
+    margin-top: 5px;
+    padding-top: 5px;
 }
 
-.message_content{
-    background-color: gainsboro;
-    border-radius: 5px;
-    padding: 10px;
-    color: #333;
+.picture {
+    position: absolute;
+    right: 20px;
+    top:20px;
+    border:1px solid #333;
+    border-radius: 4px;
+    width:100px;
+    height: 100px;
+    background-color: lightgrey;
+    overflow: hidden;
+}
+
+.content {
+    min-height: 60px;
 }

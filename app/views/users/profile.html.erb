@@ -2,45 +2,17 @@
   <title> Profile page </title>
 </head>
 
-<body>
 
-  <div class='container-fluid'>
-    <div class='row'>
-      <div class="col-lg-2" id="sidebar">
-        <div class="round-image-50 center-block">
-          <%= image_tag(current_user.avatar.url(:medium)) %>
-        </div>
-        <hr>
-        <div class="current_profile_state">
-          <p>Total</p>
-          <ul class="list-group">
-            <li class="list-group-item"><span class="badge"><%= current_user.reports.count %></span>Reports</li>
-            <li class="list-group-item"><span class="badge"><%= current_user.inverse_friendships.count %></span>Subscribers</li>
-            <li class="list-group-item"><span class="badge"><%= current_user.friendships.count %></span>Subscription</li>
-          </ul>
-        </div>
-        <div class="message-box">
-          <p>Messages</p>
-          <ul class="list-group">
-            <li class="list-group-item"><span class="badge"><%= current_user.secondary_messages.count %></span><%= link_to 'Inbox', messages_inbox_path %></li>
-            <li class="list-group-item"><span class="badge"><%= current_user.primary_messages.count %></span><%= link_to 'Outbox', messages_outbox_path %></li>
-          </ul>
-        </div>
+
+  <%= link_to 'Add new report', new_report_path %>
+
+  <% current_user.reports.each do |r| %>
+      <div class="report">
+        <p><%= r.title %></p>
+        <p><%= r.body %></p>
       </div>
-      <div class="col-lg-10 well">
-        <%= link_to 'Add new report', new_report_path %>
+      <%= link_to 'Show', report_path(r) %>
+      <%= link_to 'Delete', report_path(r), method: :delete, data: {confirm: 'Are you sure?'} %>
+  <%end%>
+  <br>
 
-        <% current_user.reports.each do |r| %>
-          <div class="report">
-            <p><%= r.title %></p>
-            <p><%= r.body %></p>
-          </div>
-              <%= link_to 'Show', report_path(r) %>
-              <%= link_to 'Delete', report_path(r), method: :delete, data: {confirm: 'Are you sure?'} %>
-        <%end%>
-        <br>
-      </div>
-    </div>
-  </div>
-
-</body>

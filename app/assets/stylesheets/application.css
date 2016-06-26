@@ -17,36 +17,13 @@
 
 body {
     padding-top: 50px;
-    font-family: sans-serif;
+    font-family: sans-serif !important;
 }
 
-.form {
-
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 250px;
-    height: 250px;
-    margin-left: -125px;
-    margin-top: -125px;
-    border: 2px solid black;
-    text-align: center;
-    padding-top: 10px;
+.fixed {
+    overflow:hidden;
 }
 
-.round-image-50 {
-    background-color: white;
-    border: 3px solid white;
-    border-radius: 10px;
-    -moz-border-radius: 10px;
-    -webkit-border-radius: 10px;
-    height: 150px;
-    width: 150px;
-    overflow: hidden;
-    #text-align: center;
-    margin-top: 20px;
-}
-
-#sidebar {
-    background-color: gainsboro;
+.scrollit {
+    overflow-y:scroll;
 }
