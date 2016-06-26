@@ -1,19 +1,23 @@
-<h2> Inbox </h2>
-<% if @messages.present? %>
-    <% @messages.each do |sm| %>
-        <div class='message'>
-          <div class='info'>
-            Message from: <%= sm.user_1.email %> | <%= time_ago_in_words sm.created_at %> ago
+<h2>Inbox</h2>
+<% if @current_user.secondary_messages.present? %>
+    <% @current_user.secondary_messages.each do |sm| %>
+
+        <div class="message_container">
+          <p class="sender"><strong>from: </strong><%= sm.user_1.username %></p>
+          <p class="created_at"><%= time_ago_in_words sm.created_at %> ago</p>
+          <p class="content">
+            <strong><%= link_to 'message:', message_path(sm) %></strong>
+            <%= truncate(sm.content, length: 200) %>
+          </p>
+          <div class="picture">
+            <%= image_tag(sm.image.url(:thumb)) %>
           </div>
-          <div class='body'>
-            <% if sm.image %>
-                <%= image_tag sm.image.url(:thumb) %>
-            <% else %>
-                <%= sm.content %>
-            <% end %>
+          <div class="nav_panel">
+            <%= link_to 'Answer'%> |
+            <%= link_to 'Delete', message_path(sm), method: :delete, data: {confirm: 'Are you sure?'} %>
           </div>
         </div>
-        <%= link_to 'Delete', message_path(sm), method: :delete, data: {confirm: 'Are you sure?'} %>
+
     <% end %>
 <% else %>
     <p> No messages </p>

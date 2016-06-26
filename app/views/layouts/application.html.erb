@@ -12,15 +12,15 @@
 <%= render partial: "shared/menu" %>
 
 <div class='container-fluid'>
-  <div class='row con'>
+  <div class='row'>
 
-    <div class='col-lg-3 fixed sidebar'>
+    <div class='col-lg-3 sidebar'>
         <% if user_signed_in? %>
             <%= render partial: "shared/sidebar" %>
         <% end %>
     </div>
 
-    <div class='col-lg-9 scrollit main_content'>
+    <div class='col-lg-9 main_content'>
       <%= yield %>
     </div>
 

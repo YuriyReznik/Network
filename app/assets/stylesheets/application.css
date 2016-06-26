@@ -19,11 +19,3 @@ body {
     padding-top: 50px;
     font-family: sans-serif !important;
 }
-
-.fixed {
-    overflow:hidden;
-}
-
-.scrollit {
-    overflow-y:scroll;
-}

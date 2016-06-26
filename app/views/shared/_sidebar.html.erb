@@ -4,27 +4,64 @@
 <h4 class="username"><%= current_user.username %></h4>
 <div class="users_status">Here will be users status</div>
 <p class="users_frienships">
-
-  <%= link_to 'followers', friendships_path, class: 'link_to_followers' %>
+  <%= link_to 'followers', friendships_path, class: 'link_to' %>
   <span class="badge"><%= current_user.friendships.count %></span> |
   <span class="badge"><%= current_user.inverse_friendships.count %></span>
-  <%= link_to 'following', friends_path, class: 'link_to_following' %>
+  <%= link_to 'following', friends_path, class: 'link_to' %>
 </p>
 
-<div class="current_profile_state">
-  <ul class="list-group">
-    <li class="list-group-item"><span class="badge"><%= current_user.reports.count %></span>Reports</li>
-  </ul>
-</div>
-<div class="message-box">
-  <p>Messages</p>
+<hr>
+
+<div class="sidebar_menu">
+  <h4>Reports</h4>
   <ul class="list-group">
     <li class="list-group-item">
-      <span class="glyphicon glyphicon-arrow-right"></span> <span class="badge"><%= current_user.secondary_messages.count %></span><%= link_to 'Inbox', messages_inbox_path %>
+      <b><%= link_to 'New report', new_report_path,  class: 'link_to' %></b>
     </li>
-    <li class="list-group-item">
-      <span class="glyphicon glyphicon-arrow-left"></span> <span class="badge"><%= current_user.primary_messages.count %></span><%= link_to 'Outbox', messages_outbox_path %>
+    <li class="list-group-item" id="my_reports">
+      <span class="badge"><%= current_user.reports.count %></span>
+      <span class="glyphicon glyphicon-user"></span>  <%= link_to 'My reports', root_path,  class: 'link_to' %>
+    </li>
+    <li class="list-group-item" id="all_reports">
+      <span class="glyphicon glyphicon-th-list"></span>  <%= link_to 'All reports', reports_path,  class: 'link_to' %>
+    </li>
+    <li class="list-group-item" id="favorite">
+      <span class="glyphicon glyphicon-heart"></span>  Favorite
+    </li>
+    <li class="list-group-item" id="top_rated">
+      <span class="glyphicon glyphicon-stats"></span>  Top rated
+    </li>
+    <li class="list-group-item" id="categories">
+      <span class="glyphicon glyphicon-th-large"></span>  Categories
     </li>
   </ul>
+
+  <hr>
+
+  <h4>Messages</h4>
+  <ul class="list-group">
+    <li class="list-group-item">
+      <b><%= link_to 'New message', new_message_path,  class: 'link_to' %></b>
+    </li>
+    <li class="list-group-item" id="inbox">
+      <span class="glyphicon glyphicon-arrow-right"></span>
+      <span class="badge"><%= current_user.secondary_messages.count %></span>
+      <%= link_to 'Inbox', messages_inbox_path,  class: 'link_to' %>
+    </li>
+    <li class="list-group-item" id="outbox">
+      <span class="glyphicon glyphicon-arrow-left"></span>
+      <span class="badge"><%= current_user.primary_messages.count %></span>
+      <%= link_to 'Outbox', messages_outbox_path,  class: 'link_to' %>
+    </li>
+  </ul>
+
+  <hr>
+
+  <h4>Gallery</h4>
+
 </div>
+
+
+
+
 
