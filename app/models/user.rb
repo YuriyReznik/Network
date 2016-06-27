@@ -6,7 +6,7 @@ class User < ActiveRecord::Base
 
   validates_presence_of :username, :email
 
-  has_attached_file :avatar, styles: { medium: '200x200>', thumb: '100x100>' }, default_url: '/images/thumb/missing.png'
+  has_attached_file :avatar, styles: { medium: '150x150>', thumb: '100x100>' }, default_url: '/images/thumb/missing.png'
   validates_attachment_content_type :avatar, content_type: /\Aimage\/.*\Z/
 
   has_many :primary_messages, :class_name => 'Message', :foreign_key => 'user_1_id'

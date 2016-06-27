@@ -1,16 +1,31 @@
-<% @users.each do |user| %>
+<title>TravelClip Users</title>
 
+<h2 class="users_headline">All Users</h2>
+
+<% @users.each do |user| %>
     <% if user != current_user %>
-        <%= image_tag(user.avatar.url(:thumb)) %>
-        <%= user.username %> |
-        <%= link_to 'Send a message', new_message_path(user_1_id: current_user.id, user_2_id: user.id), :method => :post %>
-        <%= link_to 'Go to profile', user_path(user) %>
-        <% if current_user.friendships.find { |friend| friend[:friend_id] == user.id }.present? %>
-            Has already added to your friends
-        <% else %>
-            <%= link_to 'Add Friend', friendships_path(:friend_id => user.id), :method => :post %>
-        <% end %>
-        <br>
+        <div class="users_container">
+
+          <div class="users_avatar">
+            <%= image_tag(user.avatar.url(:thumb)) %>
+          </div>
+
+          <h4 class="users_username"><b><%= user.username %></b></h4>
+          <b><%= user.reports.count %></b> posts <br>
+          <b><%= user.friendships.count %></b> followers <br>
+          <b><%= user.inverse_friendships.count %></b> following <br>
+
+          <p class="users_navigation">
+            <%= link_to 'Show profile', user_path(user), class: 'go_to_profile_link' %> |
+            <%= link_to 'Send a message', new_message_path(user_1_id: current_user.id, user_2_id: user.id), :method => :post %>
+          </p>
+
+          <% if current_user.friendships.find { |friend| friend[:friend_id] == user.id }.present? %>
+              <%= link_to 'Unsubscribe', friendship_path(current_user.friendships.find_by_friend_id(user)), :method => :delete, class: 'unsubscribe_link' %>
+          <% else %>
+              <%= link_to 'Subscribe', friendships_path(:friend_id => user.id), :method => :post, class: 'subscribe_link' %>
+          <% end %>
+        </div>
     <% end %>
 
 <% end %>

@@ -1,9 +1,5 @@
 Rails.application.routes.draw do
 
-  get 'friendships/create'
-
-  get 'friendships/destroy'
-
   devise_for :users
 
   get 'users' => 'users#index'
@@ -18,6 +14,7 @@ Rails.application.routes.draw do
   resources :friendships
   resources :reports
   resources :paintings
+
 
   post 'messages/new' => 'messages#new'
   post 'paintings/new' => 'paintings#new'

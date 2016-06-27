@@ -1,4 +1,6 @@
-<h2>Inbox</h2>
+<title>Inbox</title>
+
+<h2 class="inbox_headline">Inbox</h2>
 <% if @current_user.secondary_messages.present? %>
     <% @current_user.secondary_messages.each do |sm| %>
 
@@ -13,7 +15,7 @@
             <%= image_tag(sm.image.url(:thumb)) %>
           </div>
           <div class="nav_panel">
-            <%= link_to 'Answer'%> |
+            <%= link_to 'Answer', new_message_path(user_1_id: current_user.id, user_2_id: sm.user_1.id), :method => :post %> |
             <%= link_to 'Delete', message_path(sm), method: :delete, data: {confirm: 'Are you sure?'} %>
           </div>
         </div>

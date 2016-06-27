@@ -21,7 +21,7 @@ class MessagesController < ApplicationController
   def create
     @message = Message.create(message_params)
     if @message.errors.empty?
-      redirect_to messages_path(@message)
+      redirect_to messages_outbox_path
     else
       render 'new'
     end
@@ -36,7 +36,7 @@ class MessagesController < ApplicationController
   def update
     @message.update_attributes(message_params)
     if @message.errors.empty?
-      redirect_to messages_path(@message)
+      redirect_to message_path(@message)
     else
       render 'edit'
     end
@@ -44,7 +44,7 @@ class MessagesController < ApplicationController
 
   def destroy
     @message.destroy
-    redirect_to action: 'index'
+    redirect_to :back
   end
 
   def find_message

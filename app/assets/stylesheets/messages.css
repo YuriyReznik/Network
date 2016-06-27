@@ -1,8 +1,14 @@
+.outbox_headline {
+    margin-left: 20px;
+}
+
 .message_container {
     position: relative;
-    border-bottom: 1px solid #333;
+    border-bottom: 2px solid #333;
+    border-top: 2px solid #333;
     padding: 20px 240px 20px 110px;
-    margin: 0px auto;
+    margin: 0px 20px;
+    margin-top: -2px;
 }
 
 .created_at {
@@ -37,8 +43,7 @@ p {
     position: absolute;
     right: 20px;
     top:20px;
-    border:1px solid #333;
-    border-radius: 4px;
+    border: 3px solid #333;
     width:100px;
     height: 100px;
     background-color: lightgrey;

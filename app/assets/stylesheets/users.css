@@ -1,0 +1,62 @@
+.users_headline {
+    margin-left: 20px;
+}
+
+.users_container {
+    position: relative;
+    margin: 0px 20px 20px 20px;
+    padding: 10px 10px 10px 120px;
+    min-height: 126px;
+    width: 425px;
+    border: 2px solid #333;
+    display:inline-block;
+}
+
+.users_avatar {
+    position: absolute;
+    top: 10px;
+    left:10px;
+    background-color: white;
+    border: 2px solid #333;
+    height: 100px;
+    width: 100px;
+    overflow: hidden;
+    text-align: center;
+}
+
+.subscribe_link {
+    position: absolute;
+    display:block;
+    padding: 5px;
+    border: 1px solid forestgreen;
+    border-radius: 4px;
+    background-color: forestgreen;
+    top:75px;
+    right: 10px;
+    color:white;
+    font-weight: bold;
+    font-size: 90%;
+}
+
+.unsubscribe_link {
+    position: absolute;
+    display:block;
+    padding: 5px;
+    border: 1px solid red;
+    border-radius: 4px;
+    background-color: red;
+    top:75px;
+    right: 10px;
+    color:white;
+    font-weight: bold;
+    font-size: 90%;
+}
+
+.users_navigation {
+    text-align: right;
+    margin-top: 5px;
+    padding-top:10px;
+    margin-bottom: 0px;
+    border-top: 1px solid grey;
+}
+
