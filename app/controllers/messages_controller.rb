@@ -36,7 +36,7 @@ class MessagesController < ApplicationController
   def update
     @message.update_attributes(message_params)
     if @message.errors.empty?
-      redirect_to message_path(@message)
+      redirect_to messages_outbox_path
     else
       render 'edit'
     end

@@ -1,18 +1,32 @@
-<head>
-  <title> Profile page </title>
-</head>
+<title> TravelClip | My Reports </title>
 
+<h2 class="report_headline">My Reports</h2>
 
+<% if @current_user.reports.present? %>
 
-  <%= link_to 'Add new report', new_report_path %>
+    <% current_user.reports.each do |r| %>
+        <div class="report_container">
+          <p class="report_title">
+            <strong>title: </strong><%= r.title %>
+          </p>
+          <p class="report_category">
+            <strong>category: </strong><%= r.title %>
+          </p>
+          <p class="report_created_at"><%= r.created_at.strftime("%b %d, %Y (%l:%M %p)") %></p>
+          <p class="report_stars">
+            <strong>stars: </strong><%= r.title %>
+          </p>
+          <p class="report_body">
+            <strong>about:</strong><%= truncate(r.body, length: 270) %>
+          </p>
+          <div class="report_nav_panel">
+            <%= link_to 'Show', report_path(r) %> |
+            <%= link_to 'Delete', report_path(r), method: :delete, data: {confirm: 'Are you sure?'} %>
+          </div>
+        </div>
+    <% end %>
+<% else %>
+    <p> No reports </p>
+<% end %>
 
-  <% current_user.reports.each do |r| %>
-      <div class="report">
-        <p><%= r.title %></p>
-        <p><%= r.body %></p>
-      </div>
-      <%= link_to 'Show', report_path(r) %>
-      <%= link_to 'Delete', report_path(r), method: :delete, data: {confirm: 'Are you sure?'} %>
-  <%end%>
-  <br>
 

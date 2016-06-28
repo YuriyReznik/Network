@@ -27,9 +27,9 @@ class ReportsController < ApplicationController
   end
 
   def update
-    @report = Report.update_attributes(report_params)
+    @report.update_attributes(report_params)
     if @report.errors.empty?
-      redirect_to reports_path(@report)
+      redirect_to report_path(@report)
     else
       render 'new'
     end

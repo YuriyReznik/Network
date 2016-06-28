@@ -1,0 +1,11 @@
+<h1>Edit Painting</h1>
+
+<%= form_for @painting, html: { multipart: true } do |p|%>
+
+    <%= p.file_field :image %>
+    <%= p.hidden_field :report_id %>
+    <p>Name: <br><%=  p.text_field :name %></p>
+    <p><%=  p.submit 'Save' %></p>
+
+
+<% end %>

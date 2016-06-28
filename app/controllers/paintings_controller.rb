@@ -28,7 +28,7 @@ class PaintingsController < ApplicationController
   def update
     @painting.update_attributes(painting_params)
     if @painting.errors.empty?
-      redirect_to paintings_path(@painting)
+      redirect_to report_path(id: @painting.report_id)
     else
       render 'edit'
     end
@@ -36,7 +36,7 @@ class PaintingsController < ApplicationController
 
   def destroy
     @painting.destroy
-    redirect_to action: 'index'
+    redirect_to :back
   end
 
   def find_painting

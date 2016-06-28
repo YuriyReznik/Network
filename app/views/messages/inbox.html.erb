@@ -6,7 +6,7 @@
 
         <div class="message_container">
           <p class="sender"><strong>from: </strong><%= sm.user_1.username %></p>
-          <p class="created_at"><%= time_ago_in_words sm.created_at %> ago</p>
+          <p class="created_at"><%= sm.created_at.strftime("%b %d, %Y (%l:%M %p)") %></p>
           <p class="content">
             <strong><%= link_to 'message:', message_path(sm) %></strong>
             <%= truncate(sm.content, length: 200) %>

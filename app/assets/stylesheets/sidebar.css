@@ -1,0 +1,52 @@
+.sidebar {
+    background-color: #333;
+}
+
+.current_users_avatar {
+    background-color: white;
+    text-align: center;
+    border: 3px solid white;
+    height: 150px;
+    width: 150px;
+    overflow: hidden;
+    margin: 20px auto 10px;
+}
+
+.current_users_username {
+    text-align: center;
+    color:white;
+}
+.current_users_status {
+    text-align: center;
+    font-size: 12px;
+    color:white;
+}
+
+.current_users_frienships {
+    text-align: center;
+    margin-top: 10px;
+    color: white;
+}
+
+.current_users_followers,
+.current_users_following {
+    color: white;
+}
+
+.link_to     {
+    color: #333;
+}
+
+#categories,
+#top_rated,
+#favorite,
+#inbox,
+#outbox,
+#my_reports,
+#all_reports {
+    padding-left: 30px;
+}
+
+.sidebar_headline {
+    color: white;
+}

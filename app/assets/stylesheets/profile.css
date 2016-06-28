@@ -1,52 +1,51 @@
-.sidebar {
-    background-color: #333;
+.report_headline {
+    margin-left: 20px;
 }
 
-.current_users_avatar {
-    background-color: white;
-    text-align: center;
-    border: 3px solid white;
-    height: 150px;
-    width: 150px;
+.report_container {
+    position: relative;
+    border-bottom: 2px solid #333;
+    border-top: 2px solid #333;
+    padding: 20px 140px 20px 110px;
+    margin: 0px 20px;
+    margin-top: -2px;
+}
+
+.report_created_at {
+    position: absolute;
+    top:20px;
+    right: 20px;
+    font-style: italic;
+    color: grey;
+}
+
+strong {
+    position: absolute;
+    left:20px;
+}
+
+.report_body {
+    text-align: justify;
+    margin-bottom: 0px;
+}
+
+.report_nav_panel {
+    position: absolute;
+    right: 20px;
+    bottom:20px;
+    display: inline-block;
+    border-top: 1px solid lightgrey;
+    margin-top: 5px;
+    padding-top: 5px;
+}
+
+.picture {
+    position: absolute;
+    right: 20px;
+    top:20px;
+    border: 3px solid #333;
+    width:100px;
+    height: 100px;
+    background-color: lightgrey;
     overflow: hidden;
-    margin: 20px auto 10px;
-}
-
-.current_users_username {
-    text-align: center;
-    color:white;
-}
-.current_users_status {
-    text-align: center;
-    font-size: 12px;
-    color:white;
-}
-
-.current_users_frienships {
-    text-align: center;
-    margin-top: 10px;
-    color: white;
-}
-
-.current_users_followers,
-.current_users_following {
-    color: white;
-}
-
-.link_to     {
-    color: #333;
-}
-
-#categories,
-#top_rated,
-#favorite,
-#inbox,
-#outbox,
-#my_reports,
-#all_reports {
-    padding-left: 30px;
-}
-
-.sidebar_headline {
-    color: white;
 }

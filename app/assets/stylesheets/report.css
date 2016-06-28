@@ -1,0 +1,38 @@
+.report_navigation {
+    position: absolute;
+    top: 30px;
+    right: 55px;
+}
+
+.add_painting {
+    position: absolute;
+    bottom: -30px;
+    right: 20px;
+}
+
+.gallery_headline {
+    margin-left: 40px;
+}
+
+.gallery_container {
+
+    padding-left: 40px;
+    padding-top:10px;
+}
+
+.picture_container {
+    margin-right: 20px;
+    display: inline-block;
+}
+
+.report_image {
+    overflow: hidden;
+    width: 200px;
+    height: 200px;
+    border: 3px solid #333;
+}
+
+.image_title {
+    text-align: center;
+    font-weight: bold;
+}
