@@ -13,7 +13,7 @@ class PaintingsController < ApplicationController
   def create
     @painting = Painting.create(painting_params)
      if @painting.errors.empty?
-      redirect_to report_path(id: @painting.report_id)
+      redirect_to edit_report_path(id: @painting.report_id)
     else
       render 'new'
     end

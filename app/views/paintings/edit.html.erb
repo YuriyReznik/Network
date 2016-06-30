@@ -1,7 +1,10 @@
 <h1>Edit Painting</h1>
 
+<%= image_tag @painting.image.url(:medium) %>
+
 <%= form_for @painting, html: { multipart: true } do |p|%>
 
+    <p>Change image:</p>
     <%= p.file_field :image %>
     <%= p.hidden_field :report_id %>
     <p>Name: <br><%=  p.text_field :name %></p>

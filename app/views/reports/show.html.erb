@@ -3,7 +3,7 @@
 
 <h2 class="report_headline"><%= @report.title %></h2>
 <div class="report_navigation">
-  <%= link_to 'Back To Reports', root_path %>
+  <%= link_to 'Back To Reports', root_path %> | <%= link_to 'Edit', edit_report_path(@report) %>
 </div>
 
 <div class="report_container">
@@ -17,10 +17,6 @@
   <p class="report_body">
     <strong>about:</strong><%= @report.body %>
   </p>
-  <div class="report_nav_panel">
-    <%= link_to 'Edit', edit_report_path(@report) %>
-  </div>
-  <%= link_to 'Add painting', new_painting_path(report_id: @report.id), :method => :post, class: "add_painting" %>
 </div>
 
 <h4 class="gallery_headline">Report Gallery</h4>
@@ -32,12 +28,28 @@
       <div class="picture_container">
         <p class="image_title"><%= rp.name %></p>
         <div class="report_image"><%= image_tag rp.image.url(:medium) %></div>
-        <div class="image_action">
-          <%= link_to 'Edit', edit_painting_path(rp) %>
-          <%= link_to 'Delete', painting_path(rp), method: :delete, data: {confirm: 'Are you sure?'} %>
-        </div>
       </div>
   <% end %>
 </div>
 
+<h4><%= @report.comments.count %>   Comments</h4>
+<% @report.comments.each do |comment| %>
 
+    <p>
+      <b><%= comment.user.username %></b> <br> <%= comment.body %>
+      <%= link_to 'Delete', [@report, comment], method: :delete, data: {confirm: 'Are you sure?'} %>
+    </p>
+
+<% end %>
+
+<h2>Add a comment:</h2>
+<%= form_for([@report, @report.comments.build]) do |f| %>
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+    <p>
+      <%= f.label :body %><br/>
+      <%= f.text_area :body %>
+    </p>
+    <p>
+      <%= f.submit %>
+    </p>
+<% end %>

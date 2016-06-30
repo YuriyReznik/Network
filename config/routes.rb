@@ -2,6 +2,8 @@ Rails.application.routes.draw do
 
   devise_for :users
 
+  root 'users#profile'
+
   get 'users' => 'users#index'
   get '/users/id' => 'users#show'
   get '/users/users_friends' => 'users#users_friends', as: '/friends'
@@ -9,16 +11,15 @@ Rails.application.routes.draw do
   get 'messages/inbox' => 'messages#inbox'
   get 'messages/outbox' => 'messages#outbox'
 
-  resources :users
-  resources :messages
-  resources :friendships
-  resources :reports
-  resources :paintings
+  resources :users, :messages, :paintings, :friendships
 
+  resources :reports do
+    resources :comments
+  end
 
   post 'messages/new' => 'messages#new'
   post 'paintings/new' => 'paintings#new'
-  root 'users#profile'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

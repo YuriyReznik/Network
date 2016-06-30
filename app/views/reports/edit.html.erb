@@ -6,8 +6,8 @@
 
 
     <%= f.hidden_field :user_id, :value => current_user.id %>
-    <p>Title: <br><%= f.text_field :title %>
-    <p>Story: <br><%=  f.text_area :body %></p>
+    <p>Title: <br><%= f.text_area :title, size: "50x1" %>
+    <p>Story: <br><%=  f.text_area :body, size: "90x7" %></p>
     <p><%=  f.submit 'Save' %></p>
 
 
