@@ -32,24 +32,32 @@
   <% end %>
 </div>
 
-<h4><%= @report.comments.count %>   Comments</h4>
-<% @report.comments.each do |comment| %>
 
-    <p>
-      <b><%= comment.user.username %></b> <br> <%= comment.body %>
-      <%= link_to 'Delete', [@report, comment], method: :delete, data: {confirm: 'Are you sure?'} %>
-    </p>
+    <div class="accordeon_item">
+      <a class="accordeon_trigger" href="#"><h4><%= @report.comments.count %>   Comments</h4></a>
+      <div class="accordeon_inner">
+        <% @report.comments.each do |comment| %>
 
-<% end %>
+            <p>
+              <b><%= comment.user.username %></b> <br> <%= comment.body %>
+              <%= link_to 'Delete', [@report, comment], method: :delete, data: {confirm: 'Are you sure?'} %>
+            </p>
 
-<h4>Add a comment:</h4>
-<%= form_for([@report, @report.comments.build]) do |f| %>
-    <%= f.hidden_field :user_id, :value => current_user.id %>
-    <p>
-      <%= f.label :body %><br/>
-      <%= f.text_area :body %>
-    </p>
-    <p>
-      <%= f.submit %>
-    </p>
-<% end %>
+        <% end %>
+
+        <h4>Add a comment:</h4>
+        <%= form_for([@report, @report.comments.build]) do |f| %>
+            <%= f.hidden_field :user_id, :value => current_user.id %>
+            <p>
+              <%= f.label :body %><br/>
+              <%= f.text_area :body %>
+            </p>
+            <p>
+              <%= f.submit %>
+            </p>
+        <% end %>
+      </div>
+    </div>
+
+
+

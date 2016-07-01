@@ -49,3 +49,7 @@ strong {
     background-color: lightgrey;
     overflow: hidden;
 }
+
+.accordeon_inner {
+    display: none;
+}
