@@ -4,10 +4,10 @@ gem 'devise'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.6'
 # Use sqlite3 as the database for Active Record
-group :production do
+group :production,:development do
   gem 'pg'
 end
-group :development, :test do
+group :test do
   gem 'sqlite3'
 end
 gem 'bootstrap-sass'
