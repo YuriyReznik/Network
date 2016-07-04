@@ -3,7 +3,7 @@ class ReportsController < ApplicationController
   before_action :find_report, only: [:show, :edit, :update, :destroy]
 
   def index
-    @report = Report.all
+    @reports = Report.all
   end
 
   def new
