@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5c9edb06-4e4b-4da4-ae8f-57b37e385567" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/controllers/reports_controller.rb" afterPath="$PROJECT_DIR$/app/controllers/reports_controller.rb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/reports/index.html.erb" afterPath="$PROJECT_DIR$/app/views/reports/index.html.erb" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/app/views/reports/show.html.erb" afterPath="$PROJECT_DIR$/app/views/reports/show.html.erb" />
     </list>
     <ignored path="Network.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -734,7 +731,7 @@
       <workItem from="1467313089740" duration="2260000" />
       <workItem from="1467366113824" duration="12678000" />
       <workItem from="1467381204418" duration="530000" />
-      <workItem from="1467620258429" duration="2757000" />
+      <workItem from="1467620258429" duration="3075000" />
     </task>
     <task id="LOCAL-00001" summary="Change DB adapter to PG in production">
       <created>1466446372131</created>
@@ -792,11 +789,25 @@
       <option name="project" value="LOCAL" />
       <updated>1467381681475</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="The commit before adding a new branch">
+      <created>1467632791285</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1467632791285</updated>
+    </task>
+    <task id="LOCAL-00010" summary="The commit before adding a new branch">
+      <created>1467632848986</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1467632848986</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="119262000" />
+    <option name="totallyTimeSpent" value="119580000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="57" y="24" width="1309" height="744" extended-state="6" />
@@ -842,7 +853,8 @@
     <MESSAGE value="Add comments to reports" />
     <MESSAGE value="Set up Postgres database for development and prodaction enviroments" />
     <MESSAGE value="add accordeon for comments inside each report" />
-    <option name="LAST_COMMIT_MESSAGE" value="add accordeon for comments inside each report" />
+    <MESSAGE value="The commit before adding a new branch" />
+    <option name="LAST_COMMIT_MESSAGE" value="The commit before adding a new branch" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
