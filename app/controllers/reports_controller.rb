@@ -24,6 +24,7 @@ class ReportsController < ApplicationController
   end
 
   def show
+    @reviews = Review.where(report_id: @report.id).order("created_at DESC")
   end
 
   def update

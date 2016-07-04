@@ -31,31 +31,63 @@
       </div>
   <% end %>
 </div>
+<br>
+
+<% if @reviews.blank? %>
+    <h3>No reviews just, yet... Would you like to add the first?</h3>
+    <%= link_to 'Write a new review', new_report_review_path(@report), class: 'btn btn-danger' %>
+<% else %>
+    <% @reviews.each do |review| %>
+        <div class="review">
+          <p><b><%= review.user.username %></b></p>
+          <p><%= review.rating %></p>
+          <p><%= review.comment %></p>
+        </div>
+    <% end %>
+<% end %>
 
 <% if false %>
 
     <div class="accordeon_item">
-      <a class="accordeon_trigger" href="#"><h4><%= @report.comments.count %>   Comments</h4></a>
+      <a class="accordeon_trigger" href="#"><h4><%= @report.reviews.count %>   Reviews</h4></a>
       <div class="accordeon_inner">
-        <% @report.comments.each do |comment| %>
+        <% @report.reviews.each do |r| %>
 
             <p>
-              <b><%= comment.user.username %></b> <br> <%= comment.body %>
-              <%= link_to 'Delete', [@report, comment], method: :delete, data: {confirm: 'Are you sure?'} %>
+              <b><%= r.user.username %></b> <br>
+              <%= r.rating %>
+              <%= r.comment %>
+
             </p>
 
         <% end %>
 
-        <h4>Add a comment:</h4>
-        <%= form_for([@report, @report.comments.build]) do |f| %>
-            <%= f.hidden_field :user_id, :value => current_user.id %>
-            <p>
-              <%= f.label :body %><br/>
-              <%= f.text_area :body %>
-            </p>
-            <p>
+        <h4>Add a review:</h4>
+        <%= form_for([@report, @review]) do |f| %>
+            <% if @review.errors.any? %>
+                <div id="error_explanation">
+                  <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being
+                    saved:</h2>
+
+                  <ul>
+                    <% @review.errors.full_messages.each do |message| %>
+                        <li><%= message %></li>
+                    <% end %>
+                  </ul>
+                </div>
+            <% end %>
+
+            <div class="field">
+              <%= f.label :rating %><br>
+              <%= f.number_field :rating %>
+            </div>
+            <div class="field">
+              <%= f.label :comment %><br>
+              <%= f.text_area :comment %>
+            </div>
+            <div class="actions">
               <%= f.submit %>
-            </p>
+            </div>
         <% end %>
       </div>
     </div>

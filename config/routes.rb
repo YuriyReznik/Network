@@ -1,6 +1,5 @@
 Rails.application.routes.draw do
 
-  resources :reviews
   devise_for :users
 
   root 'users#profile'
@@ -14,7 +13,9 @@ Rails.application.routes.draw do
 
   resources :users, :messages, :paintings, :friendships
 
-  resources :reports
+  resources :reports do
+    resources :reviews, except: [:show, :index]
+  end
 
   post 'messages/new' => 'messages#new'
   post 'paintings/new' => 'paintings#new'
