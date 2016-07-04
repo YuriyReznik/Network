@@ -13,9 +13,7 @@ Rails.application.routes.draw do
 
   resources :users, :messages, :paintings, :friendships
 
-  resources :reports do
-    resources :comments
-  end
+  resources :reports
 
   post 'messages/new' => 'messages#new'
   post 'paintings/new' => 'paintings#new'

@@ -11,20 +11,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20160630124451) do
+ActiveRecord::Schema.define(version: 20160613121010) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
-
-  create_table "comments", force: :cascade do |t|
-    t.integer  "report_id"
-    t.text     "body"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
-    t.integer  "user_id"
-  end
-
-  add_index "comments", ["report_id"], name: "index_comments_on_report_id", using: :btree
 
   create_table "friendships", force: :cascade do |t|
     t.integer  "user_id"
