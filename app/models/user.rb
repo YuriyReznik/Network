@@ -18,4 +18,5 @@ class User < ActiveRecord::Base
   has_many :inverse_friends, :through => :inverse_friendships, :source => :user
 
   has_many :reports, dependent: :destroy
+  has_many :reviews, dependent: :destroy
 end
