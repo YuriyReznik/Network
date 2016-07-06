@@ -12,9 +12,6 @@
             <strong>category: </strong><%= r.title %>
           </p>
           <p class="report_created_at"><%= r.created_at.strftime("%b %d, %Y (%l:%M %p)") %></p>
-          <p class="report_stars">
-            <strong>stars: </strong><%= r.title %>
-          </p>
           <p class="report_body">
             <strong>about:</strong><%= truncate(r.body, length: 270) %>
           </p>
@@ -26,3 +23,4 @@
 <% else %>
     <p> No reports </p>
 <% end %>
+

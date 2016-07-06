@@ -12,7 +12,8 @@
   </p>
   <p class="report_created_at"><%= @report.created_at.strftime("%b %d, %Y (%l:%M %p)") %></p>
   <p class="report_stars">
-    <strong>stars: </strong><%= @report.title %>
+    <strong>stars:</strong><div class="star-rating" data-score= <%= @avg_review %> ></div>
+  <em><%="#{@reviews.length} reviews "%></em>
   </p>
   <p class="report_body">
     <strong>about:</strong><%= @report.body %>
