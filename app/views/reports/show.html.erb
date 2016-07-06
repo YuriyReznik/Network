@@ -8,7 +8,7 @@
 
 <div class="report_container">
   <p class="report_category">
-    <strong>category: </strong><%= @report.title %>
+    <strong>category: </strong><%= @report.category.name %>
   </p>
   <p class="report_created_at"><%= @report.created_at.strftime("%b %d, %Y (%l:%M %p)") %></p>
   <p class="report_stars">

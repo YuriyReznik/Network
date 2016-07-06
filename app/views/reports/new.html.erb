@@ -1,12 +1,13 @@
 <h1>New report</h1>
 
-<%= form_for @report, html: { multipart: true } do |f|%>
+<%= form_for @report, html: {multipart: true} do |f| %>
 
 
     <%= f.hidden_field :user_id, :value => current_user.id %>
-    <p>Title: <br><%= f.text_field :title %>
-    <p>Story: <br><%=  f.text_area :body %></p>
-    <p><%=  f.submit 'Save' %></p>
+    <p>Title: <br><%= f.text_field :title %></p>
+    <p><%= f.collection_select :category_id, Category.order(:name), :id, :name, include_blank: true %>
+    <p>Story: <br><%= f.text_area :body %></p>
+    <p><%= f.submit 'Save' %></p>
 
 
 

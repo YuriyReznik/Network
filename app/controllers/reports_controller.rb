@@ -4,6 +4,9 @@ class ReportsController < ApplicationController
 
   def index
     @reports = Report.all
+    if params[:category].present?
+      @reports = Report.where(category_id: params[:category])
+    end
   end
 
   def new
@@ -46,7 +49,7 @@ class ReportsController < ApplicationController
 
   private
   def report_params
-    params.require(:report).permit(:user_id, :title, :body)
+    params.require(:report).permit(:user_id, :category_id, :title, :body)
   end
 
 end

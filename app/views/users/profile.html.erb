@@ -10,7 +10,7 @@
             <strong>title: </strong><%= r.title %>
           </p>
           <p class="report_category">
-            <strong>category: </strong><%= r.title %>
+            <strong>category: </strong><%= r.category.name %>
           </p>
           <p class="report_created_at"><%= r.created_at.strftime("%b %d, %Y (%l:%M %p)") %></p>
           <p class="report_stars">
