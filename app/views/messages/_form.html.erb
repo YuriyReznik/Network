@@ -1,3 +1,5 @@
+
+<%= form_for @message, html: { multipart: true } do |f|%>
 <p> Choose image: <br>
   <%= f.file_field :image %></p>
 <%= f.hidden_field :user_1_id, :value => current_user.id %>
@@ -6,7 +8,8 @@
   <%else%>
       Choose recipient:
       <br>
-      <%= select_tag(:user_2_id, options_for_select([['Ira', 9], ['Zhenya', 10]])) %>
+      <p><%= f.collection_select :user_2_id, User.order(:username), :id, :username, include_blank: true %>
   <%end%></p>
 <p>Content: <br><%=  f.text_area :content %></p>
 <p><%=  f.submit 'Save' %></p>
+<% end %>

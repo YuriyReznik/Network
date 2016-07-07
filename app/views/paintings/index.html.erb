@@ -1,8 +1,0 @@
-<% @paintings.each do |p| %>
-    <%= p.name %>
-    <%= p.report_id %>
-<%= image_tag p.image.url(:thumb) %>
-
-    <%= link_to 'Destroy', painting_path(p), method: :delete, data: {confirm: 'Are you sure?'} %>
-
-<%end%>

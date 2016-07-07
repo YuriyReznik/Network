@@ -1,12 +1,3 @@
 <h1>Edit message</h1>
 
-<%= form_for @message, html: { multipart: true } do |f|%>
-
-    <%= f.file_field :image %>
-    <%= f.hidden_field :user_1_id, :value => current_user.id %>
-    <p>To: <br><%=  f.text_field :user_2_id %></p>
-    <p>Content: <br><%=  f.text_area :content %></p>
-    <p><%=  f.submit 'Save' %></p>
-
-
-<% end %>
+<%= render 'messages/form' %>

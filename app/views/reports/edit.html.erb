@@ -1,19 +1,7 @@
 <h1>Edit report</h1>
 
+<%= render 'reports/form' %>
 
-
-<%= form_for @report, html: { multipart: true } do |f|%>
-
-
-    <%= f.hidden_field :user_id, :value => current_user.id %>
-    <p>Title: <br><%= f.text_area :title, size: "50x1" %>
-    <p><%= f.collection_select :category_id, Category.order(:name), :id, :name, include_blank: true %>
-    <p>Story: <br><%=  f.text_area :body, size: "90x7" %></p>
-    <p><%=  f.submit 'Save' %></p>
-
-
-
-<% end %>
 
 <% @report.paintings.each do |rp| %>
 

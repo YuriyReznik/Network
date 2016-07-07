@@ -1,9 +1,12 @@
 <h1>New Painting</h1>
 
+<%= image_tag @painting.image.url(:medium) %>
+
 <%= form_for @painting, html: { multipart: true } do |p|%>
 
+    <p>Change image:</p>
     <%= p.file_field :image %>
-    <%= p.hidden_field :report_id, :value => params[:report_id] %>
+    <%= p.hidden_field :report_id, value: params[:report_id] %>
     <p>Name: <br><%=  p.text_field :name %></p>
     <p><%=  p.submit 'Save' %></p>
 
