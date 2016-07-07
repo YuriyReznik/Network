@@ -12,8 +12,10 @@ class UsersController < ApplicationController
     @user = User.new
   end
 
+  def edit
+  end
+
   def show
-    @user = User.find_by(id: params[:id])
   end
 
   def create
@@ -39,10 +41,6 @@ class UsersController < ApplicationController
     redirect_to action: 'index'
   end
 
-  def find_user
-    @user = User.find_by(id: params[:id])
-  end
-
   def profile
     @user = current_user
   end
@@ -50,7 +48,6 @@ class UsersController < ApplicationController
   def users_friends
     @user = current_user
   end
-
 
   private
   def user_params
@@ -69,6 +66,10 @@ class UsersController < ApplicationController
         :updated_at,
         :avatar,
         :username)
+  end
+
+  def find_user
+    @user = User.find_by(id: params[:id])
   end
 
 end

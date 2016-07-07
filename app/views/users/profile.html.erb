@@ -2,9 +2,9 @@
 
 <h2 class="report_headline">My Reports</h2>
 
-<% if @current_user.reports.present? %>
+<% if @user.reports.present? %>
 
-    <% current_user.reports.each do |r| %>
+    <% @user.reports.each do |r| %>
         <div class="report_container">
           <p class="report_title">
             <strong>title: </strong><%= r.title %>

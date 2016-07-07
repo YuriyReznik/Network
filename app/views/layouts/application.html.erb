@@ -11,27 +11,37 @@
 
 <%= render partial: "shared/menu" %>
 
-<div class='container-fluid'>
-  <div class='row'>
+  <div class='container-fluid'>
+    <div class='row'>
 
-    <div class='col-lg-3 sidebar'>
-        <% if user_signed_in? %>
+      <% if user_signed_in? %>
+
+          <div class='col-lg-3 col-md-3 col-sm-6 sidebar'>
             <%= render partial: "shared/sidebar" %>
-        <% end %>
+          </div>
+
+          <div class='col-lg-9 col-md-3 col-sm-6 main_content'>
+            <%= yield %>
+          </div>
+
+      <% else %>
+
+          <div class='col-lg-3 col-md-3 col-sm-3 main_content'>
+            <%= yield %>
+          </div>
+
+          <div class='col-lg-9 col-md-9 col-sm-9 main_content'>
+            <%= render partial: "shared/welcome" %>
+          </div>
+
+      <% end %>
     </div>
 
-    <div class='col-lg-9 main_content'>
-      <%= yield %>
-    </div>
-
+    <% flash.each do |type, message| %>
+        <div class="flash">
+          <%= message %>
+        </div>
+    <% end %>
   </div>
-</div>
-
-<% flash.each do |type, message| %>
-    <div class="flash">
-      <%= message %>
-    </div>
-<% end %>
-
 </body>
 </html>
